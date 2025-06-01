@@ -1,74 +1,120 @@
+# Glycemic Control Prediction
 
-# 🩺 Diabetic Control Prediction using Machine Learning
+This project predicts glycemic control (diabetes outcome) using a machine learning model trained on the PIMA Indian Diabetes dataset. The solution is deployed as a web application using Flask, allowing users to input medical parameters and get real-time predictions.
 
-This project predicts whether a patient has **good or poor glycemic (diabetic) control** using hospital data. It uses a **Support Vector Machine (SVM)** model to classify patient records based on various health features.
+## 🔍 Project Overview
+
+Glycemic control prediction can help in early identification of individuals at risk of diabetes. This project uses a Support Vector Machine (SVM) model for classification, wrapped in a simple user interface for real-world usability.
 
 ---
 
-## 📁 Folder Structure
+## 📂 Folder Structure
 
-```
-diabetes/
-├── templates/                     # HTML templates for the frontend
+Glycemic_Control_Prediction/
 
-├── deployment/                    # Flask or Streamlit deployment code
+│
 
-├── diabetes/                      # Main project logic and scripts
+├── SVM_MODEL.ipynb # Jupyter Notebook for model training
 
-├── diabetes.xlsx                  # Dataset used for training and testing
+├── deployment.py # Flask backend deployment file
 
-├── SVM_MODEL.ipynb               # Jupyter notebook containing the SVM model
+├── diabetes.csv # Dataset used for model training
 
-├── *.html, *.css, *.js           # Frontend pages, styling, and scripts
+├── diabetes-prediction-rfc-model.pkl # Saved model file (Pickle format)
+│
 
-├── *.jpg, *.png                  # Output images, visualizations
+├── templates/ # HTML files for frontend
 
-├── mains/                        # Possibly contains main scripts or helpers
+│ ├── index.html
 
-├── hospital*, no-diabetes*       # Output results or predictions
-```
+│ └── hospital.html
+
+│
+
+├── static/ # Static files (CSS, JS)
+
+│ ├── style.css
+
+│ └── script.js
+
+│
+
+├── images/ # Result visuals
+
+│ ├── p1.png
+
+│ ├── s1.png
+
+│ └── ...
+
+│
+
+└── README.md # Project documentation
+
+
+
+---
+
+## 📊 Dataset
+
+- **Source**: [Kaggle – PIMA Indian Diabetes Dataset](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database)
+- **Rows**: 768
+- **Features**: 8 medical parameters + 1 target variable (Outcome)
+- **Label**: `Outcome` (0: Non-Diabetic, 1: Diabetic)
 
 ---
 
 ## 🧠 Model Used
 
-- ✅ **Support Vector Machine (SVM)**: Trained and tested using patient data to predict glycemic control outcomes.
-- The notebook `SVM_MODEL.ipynb` includes the full model training pipeline.
-
----
-
-## 🗃️ Dataset
-
-- **File**: `diabetes.xlsx`
-- **Description**: Patient data including attributes such as glucose level, insulin use, diet patterns, and other clinical features.
+- **Algorithm**: Support Vector Machine (SVM)
+- **Library**: `sklearn.svm.SVC`
+- **Preprocessing**: StandardScaler for feature normalization
+- **Evaluation Metric**: Accuracy Score
+- **Model Storage**: `pickle` serialization
 
 ---
 
 ## 🚀 How to Run
 
-1. Set up your Python environment and required libraries.
-2. Run the Flask app from the `deployment` folder using:
-   ```bash
-   python app.py
-   ```
-3. Upload patient data via the interface or enter values manually to receive predictions.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/vaishu0803/Glycemic_Control_Prediction.git
+cd Glycemic_Control_Prediction
+2. Install Dependencies
+bash
+Copy
+Edit
+pip install -r requirements.txt
+3. Run the App
+bash
+Copy
+Edit
+python deployment.py
+Then go to http://localhost:5000 in your browser.
+
+
+
+✅ Requirements
+Create a file named requirements.txt with:
+
+
+
+flask
+pandas
+numpy
+scikit-learn
+pickle-mixin
+🙋‍♀️ Author
+Vaishnavi Vaklapudi
+Feel free to explore other projects on GitHub @vaishu0803
+
+📜 License
+This project is licensed under the MIT License.
+
 
 ---
 
-## 📊  images
-
-- `p1` to `p6`, `s1` to `s3`, `dt1`, `dt2`, `dt3`: These are image files are used in building the website.
-- `hospital.html`, `index.html`: Interactive web pages to display results.
-
----
-
-## ✅ File Saving Instructions (for team members)
-
-Please save all files following the structure shown above. Keep related files (e.g., images, notebooks, HTML) clearly named and organized for smooth collaboration.
-
----
-
-## 👩‍💻 Author
-Vaishnavi Yenumula
-This project was developed for healthcare analytics using machine learning models.
-
+Let me know if you want me to:
+- Auto-generate `requirements.txt`
+- Help add screenshots
+- Push this to your GitHub as a commit (if you connect a GitHub token)
